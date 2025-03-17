@@ -24,7 +24,7 @@ sleep 2
 # Start the TPM Resource Manager
 echo "Starting TPM2-ABRMD..."
 export TSS2_TCTI="swtpm:host=127.0.0.1,port=2321"
-export TPM2TOOLS_TCTI="mssim:host=127.0.0.1,port=2321"
+export TPM2TOOLS_TCTI="swtpm:host=127.0.0.1,port=2321"
 tpm2-abrmd --tcti=swtpm: --allow-root &
 
 # Keep container running
