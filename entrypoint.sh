@@ -28,5 +28,9 @@ export TPM2TOOLS_TCTI="swtpm:host=127.0.0.1,port=2321"
 tpm2-abrmd --tcti=swtpm: --allow-root &
 
 # Keep container running
-exec "$@"
-
+if [[ -z "$1" ]]; then
+    echo "No command provided, running a default shell..."
+    exec /bin/bash
+else
+    exec "$@"
+fi
